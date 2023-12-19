@@ -8,21 +8,35 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# CoreGapps
+AFTERLIFE_GAPPS := true
+AFTERLIFE_CORE := true
+
+# Maintainer
+AFTERLIFE_MAINTAINER := MrTopiA
+
+# FaceUnlock
 TARGET_FACE_UNLOCK_SUPPORTED := true
-TARGET_USES_AOSP_RECOVERY := true
-TARGET_BOOT_ANIMATION_RES := 1080
-TARGET_SUPPORTS_GOOGLE_RECORDER := true
-TARGET_INCLUDE_LIVE_WALLPAPERS := false
-TARGET_SUPPORTS_QUICK_TAP := true
-IS_OFFICIAL := true
+
+# Blur 
+TARGET_SUPPORTS_BLUR := true
 
 # Inherit from veux device
 $(call inherit-product, device/xiaomi/veux/device.mk)
 
-# Inherit some common PixelOS
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit some common AfterLife Stuff
+$(call inherit-product, vendor/afterlife/config/common_full_phone.mk)
 
-PRODUCT_NAME := aosp_veux
+# BOOT_ANIMATION
+TARGET_BOOT_ANIMATION_RES := 1080
+
+TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_USES_AOSP_RECOVERY := true
+
+# Pixel Charging
+USE_PIXEL_CHARGING := true
+
+PRODUCT_NAME := afterlife_veux
 PRODUCT_DEVICE := veux
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := POCO
